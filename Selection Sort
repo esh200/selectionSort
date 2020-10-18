@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+int Min(int a[],int k,int n)
+{
+    int i,j,loc=k;
+    int mini=a[k];
+    for(i=k;i<n;i++)
+    {
+        if(a[i]<mini)
+        {
+            mini=a[i];
+            loc=i;
+        }
+    }
+    return(loc);
+}
+ int main()
+ {
+     int n,i,loc;
+     cout<<"enter the size of array"<<endl;
+     cin>>n;
+     int *arr=new int[n];
+     cout<<"input:-"<<endl;
+     for(i=0;i<n;i++)
+     {
+         cin>>arr[i];
+     }
+       for(i=0;i<n;i++)
+       {
+           int key;
+           loc=Min(arr,i,n);
+           key=arr[i];
+           arr[i]=arr[loc];
+           arr[loc]=key;
+       }
+       cout<<"sorted array:-";
+        for(i=0;i<n;i++)
+     {
+         cout<<" "<<arr[i];
+     }
+ }
